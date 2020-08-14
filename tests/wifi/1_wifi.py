@@ -1,6 +1,7 @@
 import time
 from panda import Panda
-from .helpers import reset_pandas, connect_wifi, test_white, test_all_pandas, panda_type_to_serial, panda_connect_and_init
+from panda.tests.automated.helpers import reset_pandas, test_white, test_all_pandas, panda_type_to_serial, panda_connect_and_init
+from panda.tests.wifi.helpers import connect_wifi
 import requests
 
 # Reset the pandas before running tests

@@ -4,7 +4,16 @@ import time
 import subprocess
 import requests
 from panda import Panda
+
 FNULL = open(os.devnull, 'w')
+
+def connect_wifi(serial=None):
+  p = Panda(serial=serial)
+  p.set_esp_power(True)
+  dongle_id, pw = p.get_serial()
+  assert(dongle_id.isalnum())
+  _connect_wifi(dongle_id, pw)
+
 def _connect_wifi(dongle_id, pw, insecure_okay=False):
   ssid = "panda-" + dongle_id
 
